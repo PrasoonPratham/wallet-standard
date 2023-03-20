@@ -39,5 +39,11 @@
                 "require-extensions/require-extensions": "off"
             }
         }
+    ],
+    "prettier/prettier": [
+      "error",
+      {
+        "endOfLine": "auto"
+      }
     ]
 }
