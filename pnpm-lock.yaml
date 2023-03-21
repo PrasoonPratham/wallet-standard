@@ -8,6 +8,7 @@ importers:
   .:
     specifiers:
       '@changesets/cli': ^2.25.0
+      '@solana/wallet-standard-chains': workspace:^1.0.0
       '@types/chrome': ^0.0.195
       '@types/node': ^18.11.5
       '@typescript-eslint/eslint-plugin': ^5.41.0
@@ -24,6 +25,8 @@ importers:
       shx: ^0.3.4
       typedoc: ^0.23.18
       typescript: ~4.7.4
+    dependencies:
+      '@solana/wallet-standard-chains': link:packages/core/chains
     devDependencies:
       '@changesets/cli': 2.26.0
       '@types/chrome': 0.0.195
@@ -2228,13 +2231,13 @@ packages:
       '@types/connect': 3.4.35
       '@types/node': 12.20.55
       '@types/ws': 7.4.7
+      JSONStream: 1.3.5
       commander: 2.20.3
       delay: 5.0.0
       es6-promisify: 5.0.0
       eyes: 0.1.8
       isomorphic-ws: 4.0.1_ws@7.5.9
       json-stringify-safe: 5.0.1
-      JSONStream: 1.3.5
       lodash: 4.17.21
       uuid: 8.3.2
       ws: 7.5.9

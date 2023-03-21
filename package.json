@@ -52,5 +52,8 @@
     },
     "overrides": {
         "eslint": "8.22.0"
+    },
+    "dependencies": {
+        "@solana/wallet-standard-chains": "workspace:^1.0.0"
     }
 }
