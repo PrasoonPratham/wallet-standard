@@ -11,10 +11,15 @@ export const MAINNET_ENDPOINT = 'https://api.mainnet-beta.solana.com';
 export const DEVNET_ENDPOINT = 'https://api.devnet.solana.com';
 export const TESTNET_ENDPOINT = 'https://api.testnet.solana.com';
 export const LOCALNET_ENDPOINT = 'http://localhost:8899';
-export const CUSTOM_ENDPOINT = 'https://custom-rpc-url.com';
+export const CUSTOM_ENDPOINT = 'https://api.chain.eclipsenetwork.xyz:8899/';
 
 // A dummy list for white-listed custom RPCs
-const whiteListedRPCs = ['https://custom-rpc-url.com', 'https://custom-rpc-url2.com'];
+const whiteListedRPCs = [
+    'https://api.foo.eclipsenetwork.xyz:8899/',
+    'https://api.bar.eclipsenetwork.xyz:8899/',
+    'https://api.baz.eclipsenetwork.xyz:8899/',
+    'https://api.chain.eclipsenetwork.xyz:8899/',
+];
 
 // Function that checks if the custom RPC is white-listed from the Solana team
 export function checkRPC(endpoint: string): boolean {
@@ -31,7 +36,9 @@ export function getChainForEndpoint(endpoint: string): SolanaChain {
     if (/\bdevnet\b/i.test(endpoint)) return SOLANA_DEVNET_CHAIN;
     if (/\btestnet\b/i.test(endpoint)) return SOLANA_TESTNET_CHAIN;
     if (/\blocalhost\b/i.test(endpoint) || /\b127\.0\.0\.1\b/.test(endpoint)) return SOLANA_LOCALNET_CHAIN;
-    if (/^https?:\/\/custom-rpc-url\.com(:\d+)?$/i.test(endpoint) && checkRPC(endpoint)) return SOLANA_CUSTOM_CHAIN; // We're checking if a custom RPC with Regex for some dummy data and if it's white-listed from the dummy list above.
+    // We're checking if a custom RPC with Regex for some dummy data and if it's white-listed from the dummy list above.
+    if (/^https?:\/\/api\.(\w+)\.eclipsenetwork\.xyz:8899\/?$/i.test(endpoint) && checkRPC(endpoint))
+        return SOLANA_CUSTOM_CHAIN;
     return SOLANA_MAINNET_CHAIN;
 }
 
